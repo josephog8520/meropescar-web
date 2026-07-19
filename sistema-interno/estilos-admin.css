@@ -1,0 +1,581 @@
+/* ==========================================================================
+   VARIABLES GLOBALES (Gobernan todo el sitio de forma homogénea)
+   ========================================================================== */
+:root {
+    --azul-institucional: #0b436a;   /* Azul profundo: seriedad y confianza */
+    --azul-frescura: #1e88e5;        /* Azul claro: resalta elementos activos */
+    --acento-compras: #27ae60;       /* Verde: acciones de éxito y reserva */
+    --gris-fondo: #f8fafc;           /* Fondo general claro: limpieza e higiene */
+    --gris-borde: #e2e8f0;           /* Separadores sutiles */
+    --texto-principal: #1e293b;      /* Alta legibilidad */
+    --texto-secundario: #64748b;     /* Descripciones sutiles */
+    --blanco: #ffffff;
+    
+    --fuente-sistema: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ==========================================================================
+   RESETS Y ESTILOS BASE (Comunes para todas las páginas)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-sistema);
+}
+
+body {
+    background-color: var(--gris-fondo);
+    color: var(--texto-principal);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   ÁTOMO A: BARRA INFORMATIVA SUPERIOR (TOP BAR)
+   ========================================================================== */
+.top-bar {
+    background-color: var(--azul-institucional);
+    color: var(--blanco);
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.top-bar-text {
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   ÁTOMO B: MENÚ DE NAVEGACIÓN PRINCIPAL (HEADER)
+   ========================================================================== */
+.main-header {
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--gris-borde);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(11, 67, 106, 0.03);
+}
+
+.header-navigation {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    background-color: var(--gris-fondo);
+    padding: 6px;
+    border-radius: 50%;
+    border: 1px solid var(--gris-borde);
+    /* Animación orgánica de balanceo marino */
+    animation: balanceoMarino 5s ease-in-out infinite;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--azul-institucional);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.brand-tagline {
+    font-size: 0.75rem;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.actions-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-action-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 14px 6px 12px 5px; /* Detalles asimétricos artesanales */
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-action-link:hover {
+    background-color: var(--gris-fondo);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS: PORTAL DE ACCESOS (cuenta.html y admin-login.html)
+   ========================================================================== */
+.account-layout {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.account-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.account-header h2 {
+    font-size: 1.8rem;
+    color: var(--azul-institucional);
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.account-header p {
+    color: var(--texto-secundario);
+    font-size: 1rem;
+}
+
+.auth-card {
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-top: 4px solid var(--azul-frescura); 
+    border-radius: 12px 12px 16px 12px; /* Redondeado difuminado */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(11, 67, 106, 0.02);
+}
+
+.auth-card.admin-border {
+    border-top-color: var(--azul-institucional); 
+}
+
+.auth-card h3 {
+    font-size: 1.3rem;
+    color: var(--texto-principal);
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.auth-desc {
+    font-size: 0.88rem;
+    color: var(--texto-secundario);
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--texto-principal);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid var(--gris-borde);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--texto-principal);
+    outline: none;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--azul-frescura);
+    background-color: var(--blanco);
+    box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+}
+
+.btn-auth-submit {
+    width: 100%;
+    background-color: var(--azul-frescura);
+    color: var(--blanco);
+    border: none;
+    padding: 14px;
+    border-radius: 18px 8px 16px 6px; /* Silueta artesanal */
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(30, 136, 229, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-auth-submit:hover {
+    background-color: var(--azul-institucional);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(11, 67, 106, 0.2);
+}
+
+.btn-auth-submit.btn-admin-color {
+    background-color: var(--azul-institucional);
+    box-shadow: 0 4px 10px rgba(11, 67, 106, 0.2);
+}
+
+.btn-auth-submit.btn-admin-color:hover {
+    background-color: #062c47;
+}
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS: PANEL DE ADMINISTRACIÓN Y BI (admin-dashboard.html)
+   ========================================================================== */
+.admin-layout-clean {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.admin-welcome-box {
+    margin-bottom: 30px;
+}
+
+.admin-welcome-box h2 {
+    font-size: 1.8rem;
+    color: var(--azul-institucional);
+    font-weight: 800;
+}
+
+.admin-table-container {
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-radius: 14px; /* Suavizado general */
+    overflow-x: auto;
+    box-shadow: 0 8px 25px rgba(11, 67, 106, 0.02);
+    padding: 5px;
+}
+
+.admin-table-view {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px; /* Filas flotantes unificadas */
+    text-align: left;
+}
+
+.admin-table-view th, .admin-table-view td {
+    padding: 16px;
+}
+
+.admin-table-view th {
+    background-color: transparent;
+    color: var(--texto-secundario);
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--gris-borde);
+}
+
+.admin-table-view td {
+    background-color: var(--blanco);
+    border-top: 1px solid var(--gris-borde);
+    border-bottom: 1px solid var(--gris-borde);
+    font-size: 0.95rem;
+    transition: background-color 0.15s ease;
+}
+
+.admin-table-view tr td:first-child {
+    border-left: 1px solid var(--gris-borde);
+    border-radius: 6px 0 0 6px;
+}
+.admin-table-view tr td:last-child {
+    border-right: 1px solid var(--gris-borde);
+    border-radius: 0 6px 6px 0;
+}
+
+.admin-table-view tbody tr:hover td {
+    background-color: #f8fafc !important;
+}
+
+.admin-input-stock {
+    width: 110px;
+    padding: 8px 12px;
+    border: 2px solid var(--gris-borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--azul-institucional);
+}
+
+.admin-input-stock:focus {
+    border-color: var(--azul-frescura);
+    outline: none;
+}
+
+.btn-admin-save {
+    background-color: var(--azul-institucional);
+    color: var(--blanco);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px 6px 10px 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-admin-save:hover {
+    background-color: var(--azul-frescura);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ESTILOS REPOTENCIADOS: CARD-BUTTONS KPI INTELIGENTES (admin-dashboard.html)
+   ========================================================================== */
+.kpi-card-button {
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-bottom: 4px solid var(--gris-borde); /* Efecto base muelle */
+    border-radius: 14px 14px 16px 14px;
+    padding: 22px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(11, 67, 106, 0.01);
+}
+
+.kpi-card-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(11, 67, 106, 0.04);
+    border-bottom-color: var(--azul-frescura);
+}
+
+.kpi-card-button.active {
+    border-color: var(--azul-institucional);
+    border-bottom-width: 5px;
+    background: linear-gradient(to bottom, #f0f7ff 0%, #e6f2fe 100%);
+}
+
+.kpi-num {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--azul-institucional);
+    letter-spacing: -0.5px;
+    margin: 5px 0;
+}
+
+.kpi-label {
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.kpi-icon {
+    font-size: 1.3rem;
+}
+
+/* ==========================================================================
+   PESTAÑAS REPOTENCIADAS (Estilo "MeroPescar")
+   ========================================================================== */
+.tabs-container {
+    display: flex;
+    gap: 2px;
+    margin-bottom: -1px; /* Para que se solape con el borde del contenedor */
+    padding-left: 5px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    background: #f1f5f9;
+    color: var(--texto-secundario);
+    border: 1px solid var(--gris-borde);
+    border-bottom: none;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: #e2e8f0;
+    color: var(--azul-institucional);
+}
+
+.tab-btn.active {
+    background: var(--blanco);
+    color: var(--azul-institucional);
+    border-top: 3px solid var(--azul-institucional); /* El "toque" de marca */
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+}
+
+/* Botón de acción principal */
+.btn-agregar-producto {
+    background: var(--azul-frescura);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px 6px 10px 4px; /* Tu silueta artesanal */
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(30, 136, 229, 0.2);
+    transition: transform 0.2s;
+}
+
+.btn-agregar-producto:hover {
+    transform: translateY(-2px);
+    background: var(--azul-institucional);
+}
+
+.edit-prod {
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 5px;
+    width: 100%;
+}
+.edit-prod:not([disabled]) {
+    border: 1px solid var(--azul-frescura);
+    background: white;
+}
+
+/* ==========================================================================
+   KPIs OPERATIVOS REPOTENCIADOS
+   ========================================================================== */
+.kpi-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.kpi-card-operativo {
+    background: var(--blanco);
+    padding: 24px;
+    border-radius: 12px 6px 12px 6px; /* Silueta asimétrica */
+    border: 1px solid var(--gris-borde);
+    border-bottom: 4px solid var(--gris-borde); /* Efecto relieve */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card-operativo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+}
+
+/* Colores específicos según el tipo */
+.kpi-pendientes { border-bottom-color: #0284c7 !important; }
+.kpi-entregados { border-bottom-color: #059669 !important; }
+
+.kpi-card-operativo h4 {
+    font-size: 0.75rem;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--azul-institucional);
+    letter-spacing: -1px;
+}
+
+/* ==========================================================================
+   MODAL Y DETALLES DE PEDIDOS (Estilos centralizados)
+   ========================================================================== */
+.modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(11, 67, 106, 0.5); backdrop-filter: blur(6px); }
+.modal-content { background: white; margin: 5% auto; padding: 35px; width: 90%; max-width: 500px; border-radius: 16px 8px 16px 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border-top: 6px solid var(--azul-institucional); }
+
+.form-group input, .form-group select { width: 100%; margin-bottom: 15px; padding: 12px; border: 2px solid var(--gris-borde); border-radius: 8px; font-size: 1rem; display: block; }
+
+.modal-actions { display: flex; gap: 15px; margin-top: 25px; }
+
+.btn-cerrar-modal { background: #f1f5f9; color: var(--texto-secundario); border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+
+/* Estilo para la tabla interna de detalles del pedido */
+.detalle-pedido-table { width: 100%; margin-top: 10px; border-collapse: collapse; }
+.detalle-pedido-table th { text-align: left; padding: 5px; color: var(--texto-secundario); font-size: 0.8rem; border-bottom: 2px solid var(--azul-institucional); }
+.detalle-pedido-table td { padding: 8px 5px; border-bottom: 1px solid #e2e8f0; }
+
+/* ==========================================================================
+   DASHBOARD GERENCIAL: ESTILOS DE COMPONENTES
+   ========================================================================== */
+.admin-welcome-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.admin-welcome-box h2 { font-size: 1.8rem; color: var(--azul-institucional); font-weight: 800; }
+.reloj-sistema { font-family: monospace; font-size: 1.1rem; font-weight: 700; color: var(--azul-institucional); }
+
+/* Filtros de tablas */
+.filter-container { margin-bottom: 20px; display: flex; gap: 10px; }
+.filter-btn { padding: 8px 16px; cursor: pointer; font-weight: 700; border-radius: 6px; border: 1px solid var(--gris-borde); background: var(--blanco); transition: 0.2s; }
+.filter-btn.active { background: var(--azul-institucional); color: var(--blanco); border-color: var(--azul-institucional); }
+.filter-btn:hover { background: #e2e8f0; }
+
+/* Tabla de detalle - mejorada */
+.detalle-pedido-table { width: 100%; margin-top: 10px; border-collapse: collapse; }
+.detalle-pedido-table th { text-align: left; padding: 10px; color: var(--texto-secundario); font-size: 0.8rem; border-bottom: 2px solid var(--azul-institucional); }
+.detalle-pedido-table td { padding: 10px; border-bottom: 1px solid #f1f5f9; }
+
+/* ==========================================================================
+   ANIMACIONES CINÉTICAS (Toque Humano Sutil)
+   ========================================================================== */
+@keyframes balanceoMarino {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(5deg) translateY(-2px); }
+}
+
+/* Control estricto de impresión limpia para PDF de reportes contables */
+@media print {
+    body { background: white; color: black; }
+    .main-header, .top-bar, button, .filter-container { display: none !important; }
+    .auth-card, .admin-table-container { box-shadow: none !important; border: none !important; padding: 0 !important; }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES GLOBALES (Responsivo unificado e intacto)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .top-bar-container { flex-direction: column; text-align: center; }
+    .header-navigation { flex-direction: column; gap: 12px; }
+    .logo-container, .actions-container { width: 100%; justify-content: space-between; display: flex; }
+    
+    .admin-table-view th, .admin-table-view td { padding: 12px 10px; font-size: 0.9rem; }
+    .admin-input-stock { width: 90px; padding: 6px; }
+}
