@@ -1,0 +1,87 @@
+.search-container { flex: 1; max-width: 500px; }
+
+.search-form {
+    display: flex;
+    border: 2px solid var(--gris-borde);
+    border-radius: 8px 4px 8px 6px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.search-form:focus-within {
+    border-color: var(--azul-frescura);
+    box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: var(--texto-principal);
+}
+
+.search-button {
+    background-color: var(--gris-fondo);
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-left: 1px solid var(--gris-borde);
+}
+
+/* Panel Lateral de Carrito (Drawer) */
+.carrito-panel {
+    position: fixed; top: 0; right: -400px; width: 350px; height: 100%;
+    background: var(--blanco); box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 1001;
+    padding: 25px; display: flex; flex-direction: column;
+    border-left: 2px solid var(--gris-borde);
+}
+.carrito-panel.activo { right: 0; }
+
+.overlay-carrito {
+    display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.3); z-index: 1000;
+}
+
+.carrito-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.btn-cerrar-carrito { 
+    background: var(--gris-fondo); border: 1px solid var(--gris-borde); 
+    border-radius: 50%; width: 32px; height: 32px; cursor: pointer; 
+    display: flex; align-items: center; justify-content: center; transition: 0.2s;
+}
+.btn-cerrar-carrito:hover { background-color: #fee2e2; color: #ef4444; border-color: #fecaca; }
+
+.carrito-items { flex-grow: 1; overflow-y: auto; margin: 20px 0; }
+.item-carrito {
+    display: grid; grid-template-columns: 50px 1fr 60px; gap: 15px;
+    align-items: center; padding: 15px 0; border-bottom: 1px solid var(--gris-borde);
+}
+.item-img-sm { width: 50px; height: 50px; background: var(--gris-fondo); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; border-radius: 8px; }
+.item-info strong { display: block; font-size: 0.9rem; }
+.item-info span { font-size: 0.8rem; color: var(--texto-secundario); display: flex; align-items: center; gap: 5px; }
+
+.input-qty-carrito {
+    width: 50px !important; padding: 4px 8px; border: 1px solid var(--gris-borde);
+    border-radius: 6px; text-align: center; font-weight: 600; color: var(--azul-institucional);
+}
+.btn-remove { color: #ef4444; border: none; background: none; cursor: pointer; font-size: 1.2rem; }
+
+.carrito-footer { margin-top: auto; border-top: 2px solid var(--azul-institucional); padding-top: 20px; }
+.total-final { font-size: 1.2rem; font-weight: 800; color: var(--azul-institucional); margin-bottom: 15px; text-align: right; }
+.btn-confirmar-pedido { width: 100%; background: var(--acento-compras); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+
+/* Modales generales */
+.overlay-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 67, 106, 0.4); z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+}
+.modal-card {
+    background: var(--blanco); padding: 30px; border-radius: 16px;
+    width: 90%; max-width: 400px; text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.modal-card h3 { color: var(--azul-institucional); margin-bottom: 15px; }

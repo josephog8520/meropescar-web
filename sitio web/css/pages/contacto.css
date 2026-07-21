@@ -1,0 +1,112 @@
+/* css/pages/contacto.css - Estilos específicos de contacto.html */
+.contact-layout {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.contact-header-box {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-header-box h2 {
+    font-size: 1.8rem;
+    color: var(--azul-institucional);
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.contact-header-box p {
+    color: var(--texto-secundario);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-info-card, .contact-map-card {
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+}
+
+.contact-info-card h3, .contact-map-card h3 {
+    font-size: 1.25rem;
+    color: var(--azul-institucional);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.info-item-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.info-item-box:last-child { margin-bottom: 0; }
+
+.info-item-icon {
+    font-size: 1.4rem;
+    background-color: var(--gris-fondo);
+    padding: 8px;
+    border-radius: 8px;
+    line-height: 1;
+    border: 1px solid var(--gris-borde);
+}
+
+.info-item-box strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--texto-principal);
+    margin-bottom: 2px;
+}
+
+.info-item-box p {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    line-height: 1.4;
+}
+
+.map-placeholder-box {
+    background-color: #f1f5f9;
+    border: 2px dashed var(--gris-borde);
+    border-radius: 10px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-pin-icon {
+    font-size: 2.5rem;
+    color: var(--azul-frescura);
+    margin-bottom: 8px;
+    animation: pulse-pin 2.5s infinite ease-in-out;
+}
+
+.map-coordinates-badge {
+    position: absolute;
+    bottom: 12px;
+    background-color: var(--azul-institucional);
+    color: var(--blanco);
+    font-size: 0.75rem;
+    font-family: monospace;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+}

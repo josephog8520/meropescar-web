@@ -1,0 +1,26 @@
+.receipt-layout { max-width: 650px; margin: 0 auto; padding: 40px 20px; }
+.receipt-card { background-color: var(--blanco); border: 1px solid var(--gris-borde); border-radius: 16px; padding: 40px; box-shadow: 0 15px 35px rgba(11, 67, 106, 0.04); }
+.receipt-success-header { text-align: center; margin-bottom: 30px; }
+.success-icon-circle {
+    width: 60px; height: 60px; background-color: #e8f5e9; color: var(--acento-compras);
+    font-size: 2rem; font-weight: bold; display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; margin: 0 auto 15px auto;
+}
+.receipt-success-header h2 { color: var(--azul-institucional); font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+.receipt-meta-box { background-color: var(--gris-fondo); border: 1px solid var(--gris-borde); border-radius: 10px; padding: 20px; margin-bottom: 30px; }
+.meta-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; padding: 8px 0; border-bottom: 1px dashed var(--gris-borde); }
+.crypto-hash-code { font-family: monospace; background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; color: #475569; font-size: 0.8rem; }
+.badge-sri-sandbox { background-color: #fee2e2; color: #dc2626; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+.receipt-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.receipt-table th { text-align: left; color: var(--texto-secundario); font-weight: 600; padding: 8px 0; border-bottom: 2px solid var(--gris-borde); }
+.receipt-table td { padding: 12px 0; border-bottom: 1px solid var(--gris-borde); }
+.receipt-total-box { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; padding-top: 15px; border-top: 2px solid var(--azul-institucional); }
+.receipt-total-box strong { font-size: 1.8rem; color: var(--azul-institucional); font-weight: 800; }
+.btn-receipt-whatsapp {
+    width: 100%; background-color: var(--acento-compras); color: var(--blanco); border: none;
+    padding: 14px; border-radius: 14px 6px 12px 5px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 20px;
+}
+.btn-receipt-back {
+    display: block; text-align: center; background-color: var(--gris-fondo); color: var(--texto-principal);
+    text-decoration: none; padding: 14px; border-radius: 6px 12px 8px 10px; font-weight: 700; border: 1px solid var(--gris-borde); margin-top: 10px;
+}
