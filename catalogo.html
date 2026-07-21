@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Mayorista | MeroPescar</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/catalogo.css">
+</head>
+<body>
+
+    <!-- Reutilizamos el Átomo A -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span class="top-bar-text">⚓ Distribución Mayorista — Coordinación de pedidos para despacho en Muelle de Salinas</span>
+            <span class="top-bar-schedule">Horario de carga: Lun a Dom: 04:00 AM - 11:00 AM</span>
+        </div>
+    </div>
+
+    <!-- Reutilizamos el Átomo B -->
+    <header class="main-header">
+        <div class="header-navigation">
+            <div class="logo-container" onclick="window.location.href='index.html'">
+                <div class="logo-placeholder">
+                    <span class="logo-icon">🐟</span>
+                    <div class="logo-text">
+                        <span class="brand-name">MeroPescar</span>
+                        <span class="brand-tagline">Distribuidora</span>
+                    </div>
+                </div>
+            </div>
+            <div class="search-container">
+                <form action="#" class="search-form" onsubmit="event.preventDefault(); filtrarPorTexto(this.querySelector('input').value);">
+                    <input type="text" placeholder="Buscar producto... (Ej. Corvina)" class="search-input">
+                    <button type="submit" class="search-button">🔍</button>
+                </form>
+            </div>
+            <!-- ENLACES DE ACCESO MODIFICADOS CON BOTÓN DE SALIDA -->
+            <div class="actions-container">
+                <!-- Botón de Mi Cuenta / Perfil -->
+                <a href="cuenta.html" class="nav-action-link" style="text-decoration: none;">
+                    <span class="action-icon">👤</span>
+                    <span class="action-text">Mi Cuenta</span>
+                </a>
+
+                <!-- Botón del Carrito de Pedido -->
+                <div class="nav-action-link cart-link" style="cursor:pointer;" onclick="abrirResumenSimulado()">
+                    <span class="action-icon">🛒</span>
+                    <span class="action-text">Pedido</span>
+                    <span id="badge-contador" class="cart-badge-count">0</span>
+                </div>
+                
+                <!-- Botón Dinámico de Sesión (Salir / Login) -->
+                <button id="btn-sesion-accion" class="nav-action-link" style="border: none; cursor: pointer; background: transparent;">
+                    <!-- Inyectado desde JS -->
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ÁREA DEL CATÁLOGO -->
+    <main class="catalog-layout">
+        
+        <!-- Botones de Filtro por Tipo -->
+        <div class="filter-container">
+            <button class="btn-filter active" onclick="filtrarCategoria('todos', this)">Todos los Productos</button>
+            <button class="btn-filter" onclick="filtrarCategoria('Entero', this)">Pescados Enteros</button>
+            <button class="btn-filter" onclick="filtrarCategoria('Filete', this)">Filetes y Cortes</button>
+            <button class="btn-filter" onclick="filtrarCategoria('Marisco', this)">Mariscos y Conchas</button>
+        </div>
+
+        <!-- Rejilla de Productos -->
+        <div id="grid-catalogo" class="products-grid-catalog">
+            <!-- Los productos se inyectarán de forma dinámica aquí -->
+        </div>
+
+    </main>
+
+    <!-- Panel Lateral de Carrito -->
+    <div id="panel-carrito" class="carrito-panel">
+        <div class="carrito-header">
+            <h3>Mi Reserva en Muelle</h3>
+            <button onclick="cerrarCarrito()" class="btn-cerrar-carrito">✕</button>
+        </div>
+        <div id="lista-carrito" class="carrito-items">
+            <!-- Los productos se inyectarán aquí -->
+        </div>
+        <div class="carrito-footer">
+            <div class="total-final">Total: <span id="total-carrito">$0.00</span></div>
+            <button onclick="abrirPasarelaPago()" class="btn-confirmar-pedido">Confirmar Pedido</button>
+        </div>
+    </div>
+    <div id="overlay-carrito" class="overlay-carrito" onclick="cerrarCarrito()"></div>
+    
+    <!-- Modal de Pasarela de Pago Ficticia -->
+    <div id="modal-pasarela-pago" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; margin: 10% auto; text-align: left;">
+            <h3 style="color: var(--azul-institucional); margin-bottom: 10px;">💳 Pasarela de Pago Segura</h3>
+            <p style="font-size: 0.85rem; color: var(--texto-secundario); margin-bottom: 20px;">
+                Simulación de transacción bancaria para MeroPescar. Ingrese datos ficticios para continuar.
+            </p>
+            
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 5px;">Método de Pago</label>
+                <select id="pago-metodo" class="form-control" onchange="cambiarMetodoPago()" style="width: 100%; padding: 8px;">
+                    <option value="tarjeta">💳 Tarjeta de Crédito / Débito</option>
+                    <option value="transferencia">🏦 Transferencia Bancaria Directa</option>
+                </select>
+            </div>
+
+            <div id="contenedor-tarjeta">
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 5px;">Número de Tarjeta</label>
+                    <input type="text" id="pago-num-tarjeta" value="4532 8820 9910 4412" style="width: 100%; padding: 8px;" class="form-control">
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 5px;">Expiración</label>
+                        <input type="text" id="pago-exp" value="12/28" style="width: 100%; padding: 8px;" class="form-control">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 5px;">CVV</label>
+                        <input type="text" id="pago-cvv" value="456" style="width: 100%; padding: 8px;" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div id="contenedor-transferencia" style="display: none; margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;">
+                <p style="font-size: 0.85rem; color: #1e293b;"><strong>Banco Pichincha:</strong> Cuenta Corriente #30291029</p>
+                <p style="font-size: 0.85rem; color: #1e293b; margin-top: 4px;"><strong>RUC:</strong> 0992839201001</p>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button onclick="ejecutarPagoFicticio()" style="flex: 1; background: #16a34a; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">Pagar y Confirmar</button>
+                <button onclick="document.getElementById('modal-pasarela-pago').style.display='none'" style="flex: 1; background: #e2e8f0; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cargar librerías -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <!-- Cargar TU motor (debe ir antes que catalogo.js) -->
+    <script src="compartido/base-datos.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

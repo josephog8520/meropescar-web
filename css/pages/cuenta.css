@@ -1,0 +1,107 @@
+/* ==========================================================================
+   DISEÑO VISUAL CORPORATIVO: CUENTA Y AUTENTICACIÓN (MeroPescar)
+   ========================================================================== */
+
+.account-layout { 
+    max-width: 500px; 
+    margin: 0 auto; 
+    padding: 50px 20px; 
+}
+
+.account-header { 
+    text-align: center; 
+    margin-bottom: 35px; 
+}
+
+.account-header h2 { 
+    font-size: 2rem; 
+    color: var(--azul-institucional); 
+    font-weight: 900; 
+    margin-bottom: 10px; 
+    letter-spacing: -0.5px;
+}
+
+.account-header p { 
+    color: var(--texto-secundario); 
+    font-size: 0.95rem; 
+    line-height: 1.5;
+}
+
+.auth-card {
+    background-color: var(--blanco); 
+    border: 1px solid var(--gris-borde);
+    border-top: 5px solid var(--azul-frescura); 
+    border-radius: 16px;
+    padding: 35px; 
+    display: flex; 
+    flex-direction: column; 
+    box-shadow: 0 12px 30px rgba(11, 67, 106, 0.05);
+    transition: all 0.3s ease;
+}
+
+.auth-card h3 { 
+    font-size: 1.35rem; 
+    color: var(--azul-institucional); 
+    margin-bottom: 8px; 
+    font-weight: 800; 
+}
+
+.auth-desc { 
+    font-size: 0.9rem; 
+    color: var(--texto-secundario); 
+    margin-bottom: 25px; 
+    line-height: 1.5; 
+}
+
+.form-group { 
+    margin-bottom: 20px; 
+}
+
+.form-group label { 
+    display: block; 
+    font-size: 0.8rem; 
+    font-weight: 800; 
+    margin-bottom: 8px; 
+    color: var(--texto-principal); 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    width: 100%; 
+    padding: 13px 16px; 
+    border: 2px solid var(--gris-borde); 
+    border-radius: 10px;
+    font-size: 0.95rem; 
+    color: var(--texto-principal); 
+    outline: none; 
+    background-color: var(--gris-fondo);
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--azul-frescura);
+    background-color: var(--blanco);
+    box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
+}
+
+.btn-auth-submit {
+    width: 100%; 
+    background: linear-gradient(135deg, var(--azul-frescura) 0%, #1565c0 100%); 
+    color: var(--blanco); 
+    border: none;
+    padding: 14px; 
+    border-radius: 10px; 
+    font-size: 1rem; 
+    font-weight: 800; 
+    cursor: pointer; 
+    margin-top: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.2);
+}
+
+.btn-auth-submit:hover { 
+    background: linear-gradient(135deg, var(--azul-institucional) 0%, #072a46 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(11, 67, 106, 0.25);
+}

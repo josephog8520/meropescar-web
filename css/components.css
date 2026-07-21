@@ -1,0 +1,153 @@
+/* ==========================================================================
+   DISEÑO VISUAL CORPORATIVO: PANEL LATERAL DE CARRITO Y COMPONENTES
+   ========================================================================== */
+
+/* Barra de Búsqueda Superior refinada */
+.search-container { flex: 1; max-width: 500px; }
+
+.search-form {
+    display: flex;
+    border: 2px solid var(--gris-borde);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    background-color: var(--gris-fondo);
+}
+
+.search-form:focus-within {
+    border-color: var(--azul-frescura);
+    background-color: var(--blanco);
+    box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
+}
+
+.search-input {
+    width: 100%;
+    padding: 11px 16px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: var(--texto-principal);
+    background: transparent;
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    padding: 0 18px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-left: 1px solid var(--gris-borde);
+    color: var(--texto-secundario);
+    transition: color 0.2s;
+}
+
+.search-button:hover {
+    color: var(--azul-institucional);
+}
+
+/* Panel Lateral de Carrito (Drawer) Moderno */
+.carrito-panel {
+    position: fixed; 
+    top: 0; 
+    right: -420px; 
+    width: 380px; 
+    height: 100%;
+    background: var(--blanco); 
+    box-shadow: -10px 0 30px rgba(11, 67, 106, 0.12);
+    transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    z-index: 1001;
+    padding: 30px; 
+    display: flex; 
+    flex-direction: column;
+    border-left: 1px solid var(--gris-borde);
+}
+
+.carrito-panel.activo { right: 0; }
+
+.overlay-carrito {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(11, 67, 106, 0.4); 
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.carrito-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--gris-borde);
+}
+
+.carrito-header h3 {
+    color: var(--azul-institucional);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.btn-cerrar-carrito { 
+    background: var(--gris-fondo); 
+    border: 1px solid var(--gris-borde); 
+    border-radius: 50%; 
+    width: 34px; 
+    height: 34px; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.2s;
+    font-weight: bold;
+    color: var(--texto-secundario);
+}
+
+.btn-cerrar-carrito:hover { 
+    background-color: #fee2e2; 
+    color: #ef4444; 
+    border-color: #fecaca; 
+}
+
+.carrito-items { 
+    flex-grow: 1; 
+    overflow-y: auto; 
+    margin: 10px 0; 
+    padding-right: 4px;
+}
+
+.carrito-footer { 
+    margin-top: auto; 
+    border-top: 2px solid var(--azul-institucional); 
+    padding-top: 20px; 
+}
+
+.total-final { 
+    font-size: 1.3rem; 
+    font-weight: 900; 
+    color: var(--azul-institucional); 
+    margin-bottom: 20px; 
+    text-align: right; 
+}
+
+.btn-confirmar-pedido { 
+    width: 100%; 
+    background: linear-gradient(135deg, var(--acento-compras) 0%, #1e8449 100%); 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    border-radius: 12px; 
+    font-weight: 800; 
+    font-size: 1rem;
+    cursor: pointer; 
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.25);
+}
+
+.btn-confirmar-pedido:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.35);
+}

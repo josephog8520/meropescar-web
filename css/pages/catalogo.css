@@ -1,0 +1,157 @@
+/* ==========================================================================
+   DISEÑO VISUAL CORPORATIVO: CATÁLOGO Y TARJETAS (MeroPescar)
+   ========================================================================== */
+
+.catalog-layout { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
+}
+
+/* Botones de filtro superiores estilo píldora moderna */
+.filter-container { 
+    display: flex; 
+    justify-content: flex-start; 
+    gap: 12px; 
+    margin-bottom: 35px; 
+    overflow-x: auto; 
+    padding-bottom: 10px; 
+}
+
+.btn-filter {
+    background-color: var(--blanco); 
+    border: 1px solid var(--gris-borde); 
+    color: var(--texto-principal);
+    padding: 10px 22px; 
+    border-radius: 30px; 
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    cursor: pointer; 
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.btn-filter.active, .btn-filter:hover {
+    background: linear-gradient(135deg, var(--azul-institucional) 0%, #072a46 100%);
+    color: var(--blanco); 
+    border-color: var(--azul-institucional); 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(11, 67, 106, 0.15);
+}
+
+/* Rejilla de productos más espaciosa y elegante */
+.products-grid-catalog { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; 
+}
+
+/* Tarjeta individual del producto con efectos de elevación sofisticados */
+.card-catalog {
+    background: var(--blanco); 
+    border: 1px solid var(--gris-borde); 
+    border-radius: 16px;
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 12px rgba(11, 67, 106, 0.03);
+}
+
+.card-catalog:hover { 
+    border-color: var(--azul-frescura); 
+    transform: translateY(-6px); 
+    box-shadow: 0 16px 30px rgba(11, 67, 106, 0.08); 
+}
+
+.card-img-placeholder { 
+    background-color: var(--gris-fondo); 
+    height: 190px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-bottom: 1px solid var(--gris-borde); 
+    overflow: hidden;
+}
+
+.card-content-catalog { 
+    padding: 22px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    flex-grow: 1; 
+}
+
+/* Tipografía y precios mejorados */
+.card-content-catalog h3 {
+    font-size: 1.15rem;
+    color: var(--azul-institucional);
+    font-weight: 800;
+}
+
+.catalog-price { 
+    font-size: 1.5rem; 
+    font-weight: 900; 
+    color: var(--texto-principal);
+}
+
+.catalog-price span { 
+    font-size: 0.85rem; 
+    color: var(--texto-secundario); 
+    font-weight: 600;
+}
+
+.catalog-stock { 
+    font-size: 0.85rem; 
+    color: var(--acento-compras); 
+    font-weight: 700; 
+}
+
+/* Sección inferior de botones e inputs de cantidad */
+.action-box-catalog { 
+    margin-top: auto; 
+    padding: 0 22px 22px 22px; 
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-qty-catalog {
+    width: 70px; 
+    padding: 10px; 
+    border: 2px solid var(--gris-borde);
+    border-radius: 10px; 
+    font-size: 0.95rem; 
+    text-align: center; 
+    font-weight: 700; 
+    color: var(--azul-institucional); 
+    background-color: var(--gris-fondo);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-qty-catalog:focus {
+    border-color: var(--azul-frescura);
+    background-color: var(--blanco);
+}
+
+.btn-add {
+    flex-grow: 1;
+    background: linear-gradient(135deg, var(--azul-institucional) 0%, #072a46 100%);
+    color: var(--blanco); 
+    border: none;
+    padding: 11px 20px; 
+    border-radius: 10px; 
+    font-weight: 700; 
+    font-size: 0.95rem;
+    cursor: pointer; 
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(11, 67, 106, 0.15);
+}
+
+.btn-add:hover { 
+    background: linear-gradient(135deg, var(--azul-frescura) 0%, #1565c0 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(30, 136, 229, 0.25);
+}

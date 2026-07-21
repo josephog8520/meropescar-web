@@ -1,0 +1,169 @@
+/* ==========================================================================
+   DISEÑO VISUAL CORPORATIVO: RECIBO Y COMPROBANTE (MeroPescar)
+   ========================================================================== */
+
+.receipt-layout { 
+    max-width: 680px; 
+    margin: 0 auto; 
+    padding: 50px 20px; 
+}
+
+.receipt-card { 
+    background-color: var(--blanco); 
+    border: 1px solid var(--gris-borde); 
+    border-radius: 20px; 
+    padding: 45px; 
+    box-shadow: 0 20px 40px rgba(11, 67, 106, 0.06); 
+}
+
+.receipt-success-header { 
+    text-align: center; 
+    margin-bottom: 35px; 
+}
+
+.success-icon-circle {
+    width: 65px; 
+    height: 65px; 
+    background-color: #f0fdf4; 
+    color: var(--acento-compras);
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    border-radius: 50%; 
+    margin: 0 auto 15px auto;
+    border: 2px solid #bbf7d0;
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.15);
+}
+
+.receipt-success-header h2 { 
+    color: var(--azul-institucional); 
+    font-size: 1.8rem; 
+    font-weight: 900; 
+    margin-bottom: 8px; 
+    letter-spacing: -0.5px;
+}
+
+.receipt-success-header p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+.receipt-meta-box { 
+    background-color: var(--gris-fondo); 
+    border: 1px solid var(--gris-borde); 
+    border-radius: 12px; 
+    padding: 22px; 
+    margin-bottom: 30px; 
+}
+
+.meta-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 0.9rem; 
+    padding: 10px 0; 
+    border-bottom: 1px dashed var(--gris-borde); 
+}
+
+.meta-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.crypto-hash-code { 
+    font-family: monospace; 
+    background-color: #e2e8f0; 
+    padding: 3px 8px; 
+    border-radius: 6px; 
+    color: #475569; 
+    font-size: 0.8rem; 
+    font-weight: 700;
+}
+
+.badge-sri-sandbox { 
+    background-color: #fee2e2; 
+    color: #dc2626; 
+    font-size: 0.75rem; 
+    font-weight: 800; 
+    padding: 3px 10px; 
+    border-radius: 6px; 
+}
+
+.receipt-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 0.95rem; 
+}
+
+.receipt-table th { 
+    text-align: left; 
+    color: var(--texto-secundario); 
+    font-weight: 800; 
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 0; 
+    border-bottom: 2px solid var(--gris-borde); 
+}
+
+.receipt-table td { 
+    padding: 14px 0; 
+    border-bottom: 1px solid #f1f5f9; 
+    color: var(--texto-principal);
+}
+
+.receipt-total-box { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 25px; 
+    padding-top: 20px; 
+    border-top: 2px solid var(--azul-institucional); 
+}
+
+.receipt-total-box strong { 
+    font-size: 1.8rem; 
+    color: var(--azul-institucional); 
+    font-weight: 900; 
+}
+
+.btn-receipt-whatsapp {
+    width: 100%; 
+    background: linear-gradient(135deg, var(--acento-compras) 0%, #1e8449 100%); 
+    color: var(--blanco); 
+    border: none;
+    padding: 15px; 
+    border-radius: 12px; 
+    font-size: 1rem; 
+    font-weight: 800; 
+    cursor: pointer; 
+    margin-top: 25px;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.25);
+}
+
+.btn-receipt-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.35);
+}
+
+.btn-receipt-back {
+    display: block; 
+    text-align: center; 
+    background-color: var(--gris-fondo); 
+    color: var(--texto-principal);
+    text-decoration: none; 
+    padding: 14px; 
+    border-radius: 12px; 
+    font-weight: 800; 
+    border: 1px solid var(--gris-borde); 
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn-receipt-back:hover {
+    background-color: #e2e8f0;
+    color: var(--azul-institucional);
+}

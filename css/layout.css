@@ -1,0 +1,261 @@
+/* ==========================================================================
+   DISEÑO VISUAL CORPORATIVO: TOP BAR Y HEADER PRINCIPAL (MeroPescar)
+   ========================================================================== */
+
+/* Átomo A: Top Bar con sutil degradado marino */
+.top-bar {
+    background: linear-gradient(90deg, var(--azul-institucional) 0%, #072a46 100%);
+    color: var(--blanco);
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-bar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.top-bar-text { 
+    font-weight: 600; 
+    letter-spacing: 0.2px;
+}
+
+.top-bar-schedule {
+    color: #e2e8f0;
+    background-color: rgba(255, 255, 255, 0.12);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Átomo B: Header Principal con sombra elegante y efecto flotante */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gris-borde);
+    padding: 14px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(11, 67, 106, 0.06);
+}
+
+.header-navigation {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid rgba(30, 136, 229, 0.2);
+    box-shadow: 0 4px 10px rgba(30, 136, 229, 0.1);
+    animation: balanceoMarino 5s ease-in-out infinite;
+}
+
+.logo-text { display: flex; flex-direction: column; }
+
+.brand-name {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: var(--azul-institucional);
+    letter-spacing: -0.6px;
+    line-height: 1.1;
+}
+
+.brand-tagline {
+    font-size: 0.7rem;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.actions-container { display: flex; align-items: center; gap: 12px; }
+
+/* Enlaces de navegación con diseño de botones modernos estilo píldora */
+.nav-action-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 10px;
+    background-color: var(--gris-fondo);
+    border: 1px solid var(--gris-borde);
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-action-link:hover {
+    background-color: #f1f5f9;
+    border-color: var(--azul-frescura);
+    color: var(--azul-institucional);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 67, 106, 0.05);
+}
+
+.cart-link {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: var(--acento-compras);
+}
+
+.cart-link:hover {
+    background-color: #dcfce7;
+    border-color: var(--acento-compras);
+    color: #166534;
+}
+
+.cart-badge-count {
+    background-color: var(--acento-compras);
+    color: var(--blanco);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(39, 174, 96, 0.35);
+}
+
+/* Átomo E: Footer Institucional */
+.main-footer {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #f8fafc;
+    padding: 50px 20px 30px 20px;
+    border-top: 4px solid var(--azul-institucional);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    gap: 40px;
+}
+
+.footer-column h4 {
+    color: var(--blanco);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.2s ease; }
+.footer-links a:hover { color: var(--azul-frescura); }
+
+/* ==========================================================================
+   ANIMACIONES PROFESIONALES PARA EL BANNER PRINCIPAL (HERO SECTION)
+   ========================================================================== */
+
+/* 1. Animación de entrada fluida para los textos del banner (De abajo hacia arriba) */
+@keyframes heroTextEntry {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Animación de entrada con zoom elegante para la imagen o caja derecha */
+@keyframes heroImageEntry {
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Aplicamos las animaciones a los bloques internos del Hero */
+.hero-content {
+    animation: heroTextEntry 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-image-container {
+    animation: heroImageEntry 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   ADAPTABILIDAD RESPONSIVA DE LA CABECERA (Header y Acciones en Móviles)
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .header-navigation {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px !important;
+    }
+
+    /* La barra de búsqueda ocupa todo el ancho disponible */
+    .search-container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Los botones de Mi Cuenta y Pedido se alinean y distribuyen equitativamente */
+    .actions-container {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+    }
+
+    .nav-action-link {
+        flex: 1 !important;
+        justify-content: center !important;
+        padding: 10px 8px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 35px !important;
+        text-align: left !important;
+    }
+
+    .main-footer {
+        padding: 40px 20px 25px 20px !important;
+    }
+
+    .footer-column h4 {
+        margin-bottom: 12px !important;
+        font-size: 1.1rem !important;
+    }
+
+    .footer-column p, 
+    .footer-column ul li a {
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+    }
+}

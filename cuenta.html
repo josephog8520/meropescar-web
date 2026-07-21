@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta | MeroPescar</title>
+    <!-- Vinculación al diseño centralizado homogeneizado -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/cuenta.css">
+</head>
+<body>
+
+    <!-- Barra Informativa Común (Átomo A) -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span class="top-bar-text">⚓ Distribución Mayorista — Coordinación de pedidos para despacho en Muelle de Salinas</span>
+            <span class="top-bar-schedule">Horario de carga: Lun a Dom: 04:00 AM - 11:00 AM</span>
+        </div>
+    </div>
+
+    <!-- Menú de Navegación Común (Átomo B) -->
+    <header class="main-header">
+        <div class="header-navigation">
+            <div class="logo-container" onclick="window.location.href='index.html'">
+                <div class="logo-placeholder">
+                    <span class="logo-icon">🐟</span>
+                    <div class="logo-text">
+                        <span class="brand-name">MeroPescar</span>
+                        <span class="brand-tagline">Distribuidora</span>
+                    </div>
+                </div>
+            </div>
+            <div class="actions-container" style="margin-left: auto;">
+                <a href="catalogo.html" class="nav-action-link">
+                    <span class="action-icon">⬅️</span>
+                    <span class="action-text">Volver al Catálogo</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CUERPO PRINCIPAL DE ACCESOS -->
+    <main class="account-layout" style="max-width: 650px;">
+        
+        <!-- VISTA 1: FORMULARIO DE LOGIN / REGISTRO (Se oculta si hay sesión activa) -->
+        <div id="seccion-auth">
+            <div class="account-header">
+                <h2>Portal de Acceso Comercial</h2>
+                <p>Identifícate con los datos de tu negocio para revisar el stock disponible de la madrugada y asegurar tu reserva en muelle.</p>
+            </div>
+
+            <section class="auth-card">
+                <h3>Comerciantes y Distribuidores</h3>
+                <p class="auth-desc" id="auth-desc">Acceso inmediato optimizado para el muelle.</p>
+
+                <form id="auth-form" onsubmit="event.preventDefault(); procesarAuth();">
+                    <!-- Campos de Registro (Ocultos por defecto) -->
+                    <div id="campos-registro" style="display:none;">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" id="reg-nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <input type="text" id="reg-apellido" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Campos Comunes -->
+                    <div class="form-group">
+                        <label>RUC O CÉDULA</label>
+                        <input type="text" id="client-ident" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WHATSAPP</label>
+                        <input type="tel" id="client-phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CORREO ELECTRÓNICO</label>
+                        <input type="email" id="client-email" class="form-control" required>
+                    </div>
+
+                    <button type="submit" id="btn-submit" class="btn-auth-submit">Ingresar</button>
+                    
+                    <!-- Enlace de cambio de modo -->
+                    <p style="text-align:center; margin-top:20px; font-size: 0.9rem;">
+                        <span id="texto-toggle" style="cursor:pointer; color:var(--azul-frescura); font-weight:600;" onclick="toggleModo()">¿No tienes cuenta? Regístrate</span>
+                    </p>
+                </form>
+            </section>
+        </div>
+
+        <!-- VISTA 2: PANEL DE PERFIL Y GESTIÓN (Aparece automáticamente si ya inició sesión) -->
+        <div id="seccion-perfil" style="display: none;">
+            <div class="account-header">
+                <h2>Mi Perfil Mayorista</h2>
+                <p>Administra la información de tu cuenta comercial y revisa tus transacciones en el muelle.</p>
+            </div>
+
+            <section class="auth-card" style="text-align: left; margin-bottom: 25px;">
+                <h3 style="margin-bottom: 15px;">Datos de Contacto</h3>
+                <form onsubmit="event.preventDefault(); guardarCambiosPerfil();">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 12px;">
+                        <div class="form-group" style="margin:0;">
+                            <label>Nombre</label>
+                            <input type="text" id="perfil-nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group" style="margin:0;">
+                            <label>Apellido</label>
+                            <input type="text" id="perfil-apellido" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>RUC o Cédula (Identificación Única)</label>
+                        <input type="text" id="perfil-ident" class="form-control" style="background: #f1f5f9; color: #64748b;" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="tel" id="perfil-phone" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" id="perfil-email" class="form-control" required>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <button type="submit" class="btn-auth-submit" style="flex: 1; background: var(--azul-institucional);">Guardar Cambios</button>
+                        <button type="button" onclick="cerrarSesionCliente()" style="flex: 1; background: #fee2e2; color: #dc2626; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Cerrar Sesión</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- SECCIÓN EXTRA: Historial de Compras del Cliente -->
+            <section class="auth-card" style="text-align: left;">
+                <h3 style="margin-bottom: 15px;">📦 Historial de Órdenes en Muelle</h3>
+                <div id="historial-compras-container">
+                    <p style="font-size: 0.85rem; color: var(--texto-secundario);">Cargando historial de compras...</p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Modal Elegante -->
+        <div id="modal-mensaje" class="overlay-modal" style="display:none;">
+            <div class="modal-card">
+                <h3 id="modal-titulo">Notificación</h3>
+                <p id="modal-texto">Mensaje aquí.</p>
+                <button onclick="cerrarModal()" class="btn-auth-submit">Entendido</button>
+            </div>
+        </div>
+
+    <!-- Cargar librerías necesarias -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <!-- Cargar tu motor unificado (Sin type="module") -->
+    <script src="compartido/base-datos.js"></script>
+    <script src="js/cuenta.js"></script>
+</body>
+</html>
