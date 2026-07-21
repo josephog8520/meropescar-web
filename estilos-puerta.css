@@ -1,8 +1,0 @@
-body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f7f6; }
-.container { text-align: center; padding: 40px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-h1 { color: #0a2540; margin-bottom: 20px; }
-.button-group { display: flex; gap: 15px; justify-content: center; }
-.btn { padding: 15px 25px; text-decoration: none; color: white; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-.btn { background-color: #0066cc; }
-.btn.admin { background-color: #008060; }
-.btn:hover { opacity: 0.8; }
