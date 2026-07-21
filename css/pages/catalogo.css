@@ -1,0 +1,31 @@
+.catalog-layout { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+.filter-container { display: flex; justify-content: flex-start; gap: 12px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 10px; }
+.btn-filter {
+    background-color: var(--blanco); border: 1px solid var(--gris-borde); color: var(--texto-principal);
+    padding: 10px 20px; border-radius: 25px 12px 20px 15px; font-weight: 700; font-size: 0.9rem; cursor: pointer; white-space: nowrap;
+}
+.btn-filter.active, .btn-filter:hover {
+    background: linear-gradient(135deg, var(--azul-institucional) 0%, #072a46 100%);
+    color: var(--blanco); border-color: var(--azul-institucional); transform: translateY(-1px);
+}
+.products-grid-catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+.card-catalog {
+    background: var(--blanco); border: 1px solid var(--gris-borde); border-radius: 12px;
+    overflow: hidden; display: flex; flex-direction: column; transition: all 0.2s ease;
+}
+.card-catalog:hover { border-color: var(--azul-frescura); box-shadow: 0 8px 20px rgba(11, 67, 106, 0.04); }
+.card-img-placeholder { background-color: var(--gris-fondo); height: 180px; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; border-bottom: 1px solid var(--gris-borde); }
+.card-content-catalog { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+.catalog-price { font-size: 1.4rem; font-weight: bold; }
+.catalog-price span { font-size: 0.85rem; color: var(--texto-secundario); }
+.catalog-stock { font-size: 0.85rem; color: var(--acento-compras); font-weight: 600; }
+.action-box-catalog { margin-top: auto; padding: 0 20px 20px 20px; }
+.input-qty-catalog {
+    width: 100%; padding: 10px; border: 2px solid var(--gris-borde);
+    border-radius: 8px; font-size: 0.95rem; text-align: center; font-weight: 700; color: var(--azul-institucional); margin-bottom: 10px;
+}
+.btn-add {
+    background-color: var(--azul-institucional); color: var(--blanco); border: none;
+    padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.2s;
+}
+.btn-add:hover { background-color: var(--azul-frescura); }
